@@ -37,7 +37,7 @@ class ExclusiveTimeOfFunctions {
         int previous = Integer.parseInt(current[2]);
         while (i < logs.size()) {
             current = logs.get(i).split(":");
-            if (current[1].equals("start")) {
+            if ("start".equals(current[1])) {
                 if (!stack.isEmpty()) {
                     result[stack.peek()] += Integer.parseInt(current[2]) - previous;
                 }

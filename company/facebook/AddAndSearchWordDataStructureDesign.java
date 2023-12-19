@@ -45,7 +45,7 @@ public class AddAndSearchWordDataStructure {
     
     private boolean match(char[] chs, int k, TrieNode node) {
         if (k == chs.length) {
-            return !node.item.equals(""); 
+            return !"".equals(node.item); 
         }
 
         if (chs[k] != '.') {

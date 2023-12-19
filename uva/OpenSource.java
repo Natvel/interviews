@@ -69,13 +69,13 @@ public class OpenSource {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line;
 
-        while(!(line = br.readLine()).equals("0")) {
+        while(!"0".equals((line = br.readLine()))) {
             HashMap<String, Integer> projects = new HashMap<String, Integer>();
             HashMap<String, String> students = new HashMap<String, String>();
             String project = line;
             projects.put(project, 0);
 
-            while(!(line = br.readLine()).equals("1")) {
+            while(!"1".equals((line = br.readLine()))) {
                 if(isUpperCase(line.charAt(0))) {
                     project = line;
                     projects.put(project, 0);
@@ -83,7 +83,7 @@ public class OpenSource {
 
                 else {
                     if(students.containsKey(line)) {
-                        if(students.get(line).equals("")) {
+                        if("".equals(students.get(line))) {
                             continue;
                         }
 
