@@ -65,7 +65,7 @@ public class TheSettlersOfCatan {
         String line;
 
         //iterate while current line is not equal to 0 0
-        while(!(line = br.readLine()).equals("0 0")) {
+        while(!"0 0".equals((line = br.readLine()))) {
 
             //initialize number of nodes and edges
             int nodes = Integer.parseInt(line.split(" ")[0]);
