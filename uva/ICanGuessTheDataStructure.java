@@ -63,6 +63,7 @@
  * Created by kdn251 on 2/10/17.
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.util.*;
 import java.io.*;
 
@@ -81,7 +82,7 @@ public class ICanGuessTheDataStructure {
         String line;
 
         //iterate through all test cases
-        while ((line = br.readLine()) != null) {
+        while ((line = BoundedLineReader.readLine(br, 5_000_000)) != null) {
 
             //initialize removals for each data structure
             int stackRemovals = 0;
@@ -100,7 +101,7 @@ public class ICanGuessTheDataStructure {
             //iterate over all test cases
             for (int i = 0; i < numberOfCases; i++) {
 
-                String[] currentLineSplit = br.readLine().split(" ");
+                String[] currentLineSplit = BoundedLineReader.readLine(br, 5_000_000).split(" ");
                 int command = Integer.parseInt(currentLineSplit[0]);
                 int number = Integer.parseInt(currentLineSplit[1]);
 
