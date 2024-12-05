@@ -27,6 +27,7 @@
 // 3
 // 4
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -41,14 +42,14 @@ public class VirtualFriends {
 
     public static void main(String args[]) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int cases = Integer.parseInt(br.readLine());
+        int cases = Integer.parseInt(BoundedLineReader.readLine(br, 5_000_000));
         while(cases-- > 0) {
             startUnion(people.length);
             HashMap<String, Integer> map = new HashMap<String, Integer>();
-            int friendships = Integer.parseInt(br.readLine());
+            int friendships = Integer.parseInt(BoundedLineReader.readLine(br, 5_000_000));
             int numberOfPeople = 0;
             for(int i = 0; i < friendships; i++) {
-                String[] line = br.readLine().split("\\s+");
+                String[] line = BoundedLineReader.readLine(br, 5_000_000).split("\\s+");
                 String x = line[0];
                 String y = line[1];
                 if (x.equals(y)) {
