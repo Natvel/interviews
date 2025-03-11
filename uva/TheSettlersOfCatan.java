@@ -48,6 +48,7 @@
 // 2
 // 12
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 
 /**
@@ -65,7 +66,7 @@ public class TheSettlersOfCatan {
         String line;
 
         //iterate while current line is not equal to 0 0
-        while(!(line = br.readLine()).equals("0 0")) {
+        while(!(line = BoundedLineReader.readLine(br, 5_000_000)).equals("0 0")) {
 
             //initialize number of nodes and edges
             int nodes = Integer.parseInt(line.split(" ")[0]);
@@ -75,7 +76,7 @@ public class TheSettlersOfCatan {
             for(int i = 0; i < edges; i++) {
 
                 //get edge between node x and node y
-                String[] current = br.readLine().split(" ");
+                String[] current = BoundedLineReader.readLine(br, 5_000_000).split(" ");
                 int x = Integer.parseInt(current[0]);
                 int y = Integer.parseInt(current[1]);
 

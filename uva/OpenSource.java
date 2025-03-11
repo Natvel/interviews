@@ -50,6 +50,7 @@
 // UBQTS TXT 1
 // SKINUX 0
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Comparator;
@@ -69,13 +70,13 @@ public class OpenSource {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line;
 
-        while(!(line = br.readLine()).equals("0")) {
+        while(!(line = BoundedLineReader.readLine(br, 5_000_000)).equals("0")) {
             HashMap<String, Integer> projects = new HashMap<String, Integer>();
             HashMap<String, String> students = new HashMap<String, String>();
             String project = line;
             projects.put(project, 0);
 
-            while(!(line = br.readLine()).equals("1")) {
+            while(!(line = BoundedLineReader.readLine(br, 5_000_000)).equals("1")) {
                 if(isUpperCase(line.charAt(0))) {
                     project = line;
                     projects.put(project, 0);
