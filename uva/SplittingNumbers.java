@@ -34,6 +34,7 @@
  * Created by kdn251 on 2/10/17.
  */
 
+import io.github.pixee.security.BoundedLineReader;
 import java.util.*;
 import java.io.*;
 
@@ -44,7 +45,7 @@ public class SplittingNumbers {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line;
 
-        while((line = br.readLine()) != null) {
+        while((line = BoundedLineReader.readLine(br, 5_000_000)) != null) {
 
             //read number
             int number = Integer.parseInt(line);

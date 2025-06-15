@@ -37,6 +37,7 @@
 // 3
 // 7
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.util.*;
 
@@ -54,7 +55,7 @@ public class Friends {
 
         //initialize buffered reader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String line = br.readLine();
+        String line = BoundedLineReader.readLine(br, 5_000_000);
 
         //store number of test cases
         int testCases = Integer.parseInt(line);
@@ -62,7 +63,7 @@ public class Friends {
         for(int i = 0; i < testCases; i++) {
 
             //determine number of people and pairs of people (N and M)
-            String[] info = br.readLine().split(" ");
+            String[] info = BoundedLineReader.readLine(br, 5_000_000).split(" ");
             int numberOfPeople = Integer.parseInt(info[0]);
             int numberOfRelationship = Integer.parseInt(info[1]);
 
@@ -72,7 +73,7 @@ public class Friends {
             for(int j = 0; j < numberOfRelationship ; j++) {
 
                 //split current line to determine person and friend
-                String[] currentLine = br.readLine().split(" ");
+                String[] currentLine = BoundedLineReader.readLine(br, 5_000_000).split(" ");
                 int person = Integer.parseInt(currentLine[0]);
                 int friend = Integer.parseInt(currentLine[1]);
                 union(person, friend);
